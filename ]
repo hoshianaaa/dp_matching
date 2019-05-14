@@ -23,15 +23,12 @@ int min(int a,int b,int c,int *num){
 }
 
 
-
-
-
 int main(){
 
 
 	int map[MAP_HEIGHT][MAP_WIDTH] = { 
 			{1,2,2,3,1},
-			{3,2,3,9,10},
+			{3,2,3,9,1},
 			{2,5,5,4,1},
 			{3,3,3,5,2}
 	};
@@ -63,6 +60,7 @@ int main(){
 			int left = value[i][j-1] + map[i][j];
 			value[i][j] = min(up,diagonal,left, &route[i][j]);
 
+
 		}
 	}
 
@@ -73,24 +71,6 @@ int main(){
 	mat_print(route);
 	
 	
-	int route_image[MAP_HEIGHT][MAP_WIDTH] = {};
-	int x,y,r;
-	x = MAP_HEIGHT-1; 
-	y = MAP_WIDTH-1;
-	r = route[MAP_HEIGHT-1][MAP_WIDTH-1];
-	printf("r:%d x:%d y:%d\n",r,x,y);
-
-	while(r){
-			r = route[x][y];
-			route_image[x][y] = 1;
-			if(r == 1)x--;
-			if(r == 2){x--;y--;}
-			if(r == 3)y--;
-	} 
-
-	printf("\n<route_image>\n");
-	mat_print(route_image);
-
 	return 0;
 }
 
