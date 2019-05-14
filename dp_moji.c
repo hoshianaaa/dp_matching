@@ -1,35 +1,39 @@
 #include <stdio.h> 
-#define MAP_HEIGHT 2
-#define MAP_WIDTH  3
 
-void mat_print(int mat[MAP_HEIGHT][MAP_WIDTH]){ 
+void mat_print(int height,int width,int mat[height][width]){ 
 		
-		for(int i=0;i<MAP_HEIGHT;i++){ 
-				for(int j=0;j<MAP_WIDTH;j++){
+		for(int i=0;i<height;i++){ 
+				for(int j=0;j<width;j++){
 						printf("%d\t",mat[i][j]);
 				}
 				printf("\n");
 		}
 }
+
+
 	
 int main(){
 	char strA[] = {'a','a','b'};
-	char strB[] = {'a','b'};	
+	char strB[] = {'a','b','b','b'};	
+	
+	int height = sizeof(strB);
+	int width = sizeof(strA);
 
-	for(int i=0;i<sizeof(strA);i++)printf("%c ",strA[i]);
+	printf("  ");
+	for(int i=0;i<width;i++)printf("%c ",strA[i]);
 	printf("\n");
-	for(int i=0;i<sizeof(strB);i++)printf("%c ",strB[i]);
+	for(int i=0;i<height;i++)printf("%c\n",strB[i]);
 	printf("\n");
 
-	int map[MAP_HEIGHT][MAP_WIDTH] = {};
+	int map[height][width];
 
-	for(int i=0;i<MAP_WIDTH;i++){
-			for(int j=0;j<MAP_HEIGHT;j++){
+	for(int i=0;i<width;i++){
+			for(int j=0;j<height;j++){
 					if(strA[i] == strB[j])map[j][i] = 1;
 					else map[j][i] = 3;
 			}
 	}
-	mat_print(map);
+	mat_print(height,width,map);
 
 }
 
