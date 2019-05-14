@@ -30,7 +30,7 @@ int main(){
 
 
 	int map[MAP_HEIGHT][MAP_WIDTH] = { 
-			{1,2,2,3,1},
+			{1,10,2,3,1},
 			{3,2,3,9,10},
 			{2,5,5,4,1},
 			{3,3,3,5,2}
@@ -78,7 +78,6 @@ int main(){
 	x = MAP_HEIGHT-1; 
 	y = MAP_WIDTH-1;
 	r = route[MAP_HEIGHT-1][MAP_WIDTH-1];
-	printf("r:%d x:%d y:%d\n",r,x,y);
 
 	while(r){
 			r = route[x][y];
